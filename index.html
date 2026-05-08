@@ -8,6 +8,7 @@
 </head>
 <body>
 
+<div id="nav-sentinel" aria-hidden="true"></div>
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">International Workshop on<br>Reality Mediation</a>
@@ -155,7 +156,13 @@
           <p><strong>Takuro Yonezawa</strong> is an Associate Professor at the Graduate School of Engineering, Nagoya University, Japan. His research interests are the intersection of the distributed systems, human-computer interaction and sensors/actuators technologies. He led several smart city projects as a technical coordinator, such as FP7/Horizon2020/NICT European-Japanese collaborative research project (ClouT project, BigClouT project), MIC G-Space city project, etc. Currently, as the principal investigator of the JST CREST Internet of Realities project. He contributed various international research communities, such as IMWUT as associate editor, IEEE PerCom as Technical Program Committee, ACM ICMI as Senior Program Committee, and so on.</p>
         </article>
         <article class="person">
-          <div class="avatar" aria-hidden="true">SM</div>
+          <div class="person-media">
+            <img class="avatar" src="" alt="SM">
+            <p class="person-links">
+              <a class="link-btn" href="https://interactions.ics.unisg.ch" target="_blank"><i data-lucide="globe"></i>Website</a>
+              <a class="link-btn" href="mailto:simon.mayer@unisg.ch"><i data-lucide="mail"></i>Contact</a>
+            </p>
+          </div>
           <p><strong>Simon Mayer</strong> is a Full Professor at the University of St.Gallen, Switzerland, where he leads the Chair for Interaction- and Communication-based Systems. His research investigates the integration of concepts and approaches from across the fields of pervasive computing, hypermedia, human-computer interaction, law, healthcare, and embedded systems to realize UbiComp systems that are beneficial for their users as well as for society. Simon serves on the editorial boards of PACM IMWUT and IEEE Pervasive Computing as well as in the steering committee of the International Conference on the Internet of Things.</p>
         </article>
         <article class="person">
@@ -166,7 +173,7 @@
           <div class="person-media">
             <img class="avatar" src="figures/profile_jannis_strecker-bischoff.jpg" alt="Jannis Strecker-Bischoff">
             <p class="person-links">
-              <a class="link-btn" href="https://academia.jrstrecker.de"><i data-lucide="globe"></i>Website</a>
+              <a class="link-btn" href="https://academia.jrstrecker.de" target="_blank"><i data-lucide="globe"></i>Website</a>
               <a class="link-btn" href="mailto:jannis.strecker-bischoff@unisg.ch"><i data-lucide="mail"></i>Contact</a>
             </p>
           </div>
@@ -202,6 +209,12 @@
 </footer>
 
 <script src="lucide.min.js"></script>
-<script>lucide.createIcons();</script>
+<script>
+  lucide.createIcons();
+  const nav = document.querySelector('.nav');
+  const sentinel = document.getElementById('nav-sentinel');
+  new IntersectionObserver(([e]) => nav.classList.toggle('is-scrolled', !e.isIntersecting))
+    .observe(sentinel);
+</script>
 </body>
 </html>

@@ -40,6 +40,8 @@
 
 html, body { margin: 0; padding: 0; }
 
+#nav-sentinel { position: absolute; top: 0; left: 0; height: 1px; width: 1px; pointer-events: none; }
+
 body {
   /* background: var(--bg); */
   color: var(--fg);
@@ -64,10 +66,16 @@ a:hover { opacity: .65; }
 .nav {
   position: sticky;
   top: 0;
-  background: color-mix(in srgb, var(--nav-bg) 94%, transparent);
-  backdrop-filter: saturate(140%) blur(8px);
-  border-bottom: 1px solid var(--rule);
+  background: transparent;
+  border-bottom: 1px solid transparent;
   z-index: 10;
+  transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+}
+.nav.is-scrolled {
+  background: color-mix(in srgb, var(--nav-bg) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom-color: var(--rule);
 }
 .nav .wrap {
   display: flex;
@@ -106,6 +114,11 @@ a:hover { opacity: .65; }
 /* Hero */
 .hero {
   padding: 96px 0 72px;
+  background:
+    radial-gradient(ellipse 70% 60% at 90% 10%, #d8e4d4 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 5% 90%, #dde7df 0%, transparent 60%),
+    radial-gradient(ellipse 80% 50% at 50% 100%, #eaeee5 0%, transparent 65%),
+    #ffffff;
 }
 .eyebrow {
   display: inline-block;
@@ -124,6 +137,10 @@ h1 {
   line-height: 1.05;
   letter-spacing: -0.025em;
   margin: 0 0 20px;
+  background: linear-gradient(120deg, #3a3645 0%, #354982 55%, #6b7fb8 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
 }
 .subtitle {
   font-size: 19px;
@@ -134,8 +151,18 @@ h1 {
 }
 
 /* Sections */
-.section { padding: 64px 0; }
+.section { padding: 64px 0; position: relative; }
 .section:nth-of-type(even) { background: var(--section-alt); }
+.section + .section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(53, 73, 130, 0.35) 25%, rgba(53, 73, 130, 0.35) 75%, transparent);
+  pointer-events: none;
+}
 
 h2 {
   font-size: 30px;
