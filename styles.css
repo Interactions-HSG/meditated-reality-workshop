@@ -1,37 +1,19 @@
 @font-face {
   font-family: "Inter";
-  src: url("fonts/Inter-Regular.otf") format("opentype");
-  font-weight: 400;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("fonts/Inter-Medium.otf") format("opentype");
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("fonts/Inter-SemiBold.otf") format("opentype");
-  font-weight: 600;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Inter";
-  src: url("fonts/Inter-Bold.otf") format("opentype");
-  font-weight: 700;
+  src: url("fonts/InterVariable.ttf") format("truetype-variations");
+  font-weight: 100 900;
   font-display: swap;
 }
 
 :root {
   --bg: #ffffff;
-  --accent: #354982;
-  --accent-soft: #eaedf5;
-  --nav-bg: #f9f9f9;
-  --section-alt: #f9f9f9;
-  --fg: #1a1a1a;
-  --muted: #5a5a55;
-  --rule: #1a1a1a18;
+  --section-alt: #f5f6f9;
+  --accent: #2d3e6e;
+  --accent-soft: #e2e7ef;
+  --nav-bg: #eceff4;
+  --fg: #15171c;
+  --muted: #5b6470;
+  --rule: #15171c14;
   --radius: 999px;
   --max: 750px;
 }
@@ -43,7 +25,7 @@ html, body { margin: 0; padding: 0; }
 #nav-sentinel { position: absolute; top: 0; left: 0; height: 1px; width: 1px; pointer-events: none; }
 
 body {
-  /* background: var(--bg); */
+  background: var(--bg);
   color: var(--fg);
   font-family: "Inter", system-ui, sans-serif;
   font-weight: 400;
@@ -116,7 +98,7 @@ a:hover { opacity: .65; }
   min-height: 20vh;
   padding: 231px 0 72px;
   background-image:
-    linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.85) 100%),
+    linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.94) 88%, #ffffff 100%),
     url("figures/chuttersnap-tStoxme92is-unsplash.jpg");
   background-size: cover;
   background-position: center;
@@ -138,7 +120,7 @@ h1 {
   line-height: 1.05;
   letter-spacing: -0.025em;
   margin: 0 0 20px;
-  background: linear-gradient(120deg, #3a3645 0%, #354982 55%, #6b7fb8 100%);
+  background: linear-gradient(120deg, #1f2230 0%, #2d3e6e 55%, #4a5670 100%);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
@@ -174,17 +156,8 @@ h1 {
 
 /* Sections */
 .section { padding: 64px 0; position: relative; }
-.section:nth-of-type(even) { background: var(--section-alt); }
-.section + .section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 15%;
-  right: 15%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(53, 73, 130, 0.35) 25%, rgba(53, 73, 130, 0.35) 75%, transparent);
-  pointer-events: none;
-}
+.section:nth-of-type(odd) { background: var(--section-alt); }
+
 
 h2 {
   font-size: 30px;
@@ -236,7 +209,7 @@ ul li::marker { color: var(--muted); }
   color: var(--bg);
   transition: background .15s ease, color .15s ease, opacity .15s ease;
 }
-.btn:hover { opacity: 1; background: transparent; color: var(--fg); }
+.btn:hover { opacity: 1; background: transparent; color: var(--accent); }
 
 .link-btn {
   display: inline-flex;
