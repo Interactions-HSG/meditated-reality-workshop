@@ -330,7 +330,7 @@ ul li::marker { color: var(--muted); }
   width: 96px;
   height: 96px;
   border-radius: 50%;
-  background: #1a1a1a0d;
+  background: var(--section-alt);
   /* border: 1px solid var(--rule);*/ 
   display: flex;
   align-items: center;
