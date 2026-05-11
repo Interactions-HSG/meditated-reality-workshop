@@ -8,8 +8,9 @@
 :root {
   --bg: #ffffff;
   --section-alt: #f5f6f9;
-  --accent: #2d3e6e;
-  --accent-soft: #e2e7ef;
+  --brand: #2d3e6e;
+  --accent: #a8442a;
+  --accent-soft: #f5e4dc;
   --nav-bg: #eceff4;
   --fg: #15171c;
   --muted: #5b6470;
@@ -20,6 +21,7 @@
 
 * { box-sizing: border-box; }
 
+html { scroll-behavior: smooth; }
 html, body { margin: 0; padding: 0; }
 
 #nav-sentinel { position: absolute; top: 0; left: 0; height: 1px; width: 1px; pointer-events: none; }
@@ -48,17 +50,13 @@ a:hover { opacity: .65; }
 .nav {
   position: sticky;
   top: 0;
-  background: transparent;
+  background: #fff;
   border-bottom: 1px solid transparent;
   z-index: 10;
   transition: background .25s ease, border-color .25s ease, backdrop-filter .25s ease;
+  box-shadow: 1px 1px 3px #707070;
 }
-.nav.is-scrolled {
-  background: color-mix(in srgb, var(--nav-bg) 88%, transparent);
-  backdrop-filter: saturate(140%) blur(10px);
-  -webkit-backdrop-filter: saturate(140%) blur(10px);
-  border-bottom-color: var(--rule);
-}
+
 .nav .wrap {
   display: flex;
   align-items: center;
@@ -70,10 +68,8 @@ a:hover { opacity: .65; }
 }
 .brand {
   font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-weight: 700;
   text-decoration: none;
-  color: var(--accent);
   flex: 0 1 auto;
   max-width: 50%;
   line-height: 1.25;
@@ -98,8 +94,8 @@ a:hover { opacity: .65; }
   min-height: 20vh;
   padding: 231px 0 72px;
   background-image:
-    linear-gradient(to bottom, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.94) 88%, #ffffff 100%),
-    url("figures/chuttersnap-tStoxme92is-unsplash.jpg");
+    linear-gradient(to bottom, rgba(20,28,55,0.35) 0%, rgba(20,28,55,0.85) 88%, #141c37 100%),
+    url("figures/chuttersnap-tStoxme92is-unsplash.png");
   background-size: cover;
   background-position: center;
 }
@@ -114,20 +110,20 @@ a:hover { opacity: .65; }
   border-radius: var(--radius);
   margin-bottom: 24px;
 }
-h1 {
+.hero h1 {
   font-size: 2.75em;
   font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.025em;
   margin: 0 0 20px;
-  background: linear-gradient(120deg, #1f2230 0%, #2d3e6e 55%, #4a5670 100%);
+  background: linear-gradient(120deg, #ffffff 0%, #dbe3f5 55%, #c7cede 100%);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
 }
-.subtitle {
+.hero .subtitle {
   font-size: 19px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.82);
   max-width: 60ch;
   margin: 0;
   line-height: 1.55;
@@ -139,12 +135,21 @@ h1 {
   gap: 12px;
   margin: 28px 0 0;
   font-size: 14px;
-  color: var(--muted);
+  color: rgba(255, 255, 255, 0.75);
 }
 .hero-meta .link-btn {
-  background: color-mix(in srgb, var(--bg) 70%, transparent);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+}
+.hero-meta .link-btn:hover {
+  color: #ffffff;
+  border-color: var(--accent);
+}
+.hero-meta .hero-meta-sep {
+  color: rgba(255, 255, 255, 0.45);
 }
 .hero-meta-sep {
   color: var(--rule);
@@ -167,6 +172,7 @@ h2 {
   display: flex;
   align-items: baseline;
   gap: 14px;
+  color: var(--accent);
 }
 .num {
   font-size: 14px;
@@ -321,8 +327,8 @@ ul li::marker { color: var(--muted); }
 }
 .person:last-child { border-bottom: 1px solid var(--rule); }
 .avatar {
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   background: #1a1a1a0d;
   /* border: 1px solid var(--rule);*/ 
