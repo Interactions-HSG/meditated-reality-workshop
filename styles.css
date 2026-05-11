@@ -212,7 +212,7 @@ a:hover { opacity: .65; }
 }
 
 /* Sections */
-.section { padding: 64px 0; position: relative; }
+.section { padding: 64px 0; position: relative; scroll-margin: 2em;}
 .section:nth-of-type(odd) { background: var(--section-alt); }
 
 
@@ -282,6 +282,7 @@ ul li::marker { color: var(--muted); }
   font-weight: 500;
   color: var(--muted);
   background: transparent;
+  white-space: nowrap;
   transition: border-color .15s ease, color .15s ease;
 }
 .link-btn .lucide {
