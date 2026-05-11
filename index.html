@@ -16,6 +16,10 @@
 <header class="nav">
   <div class="wrap">
     <a class="brand" href="#top">International Workshop on<br>Reality Mediation</a>
+    <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">
+      <i data-lucide="menu" class="icon-menu"></i>
+      <i data-lucide="x" class="icon-x"></i>
+    </button>
     <nav>
       <a href="#abstract">Abstract</a>
       <a href="#participation">Participation</a>
@@ -203,6 +207,22 @@
 <script src="lucide.min.js"></script>
 <script>
   lucide.createIcons();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const navMenu = document.querySelector('.nav nav');
+  toggle.addEventListener('click', () => {
+    const isOpen = navMenu.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.setAttribute('aria-label', isOpen ? 'Close navigation' : 'Open navigation');
+  });
+  navMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMenu.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
+    });
+  });
+
   const nav = document.querySelector('.nav');
   const sentinel = document.getElementById('nav-sentinel');
   new IntersectionObserver(([e]) => nav.classList.toggle('is-scrolled', !e.isIntersecting))
