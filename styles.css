@@ -40,7 +40,7 @@ body {
 .wrap {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 32px;
 }
 
 a { color: inherit; }
@@ -408,6 +408,7 @@ ul li::marker { color: var(--muted); }
 
 .role-pill {
   display: inline-block;
+  align-self: center;
   margin-top: 5px;
   padding: 5px 14px;
   border-radius: var(--radius);
@@ -416,6 +417,7 @@ ul li::marker { color: var(--muted); }
   color: var(--muted);
   font-size: 13px;
   font-weight: 500;
+  white-space: nowrap;
   cursor: default;
   user-select: none;
 }
@@ -435,15 +437,18 @@ footer .wrap {
 }
 
 /* Responsive */
+@media (max-width: 879px) {
+  .person { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; }
+  .avatar { width: 120px; height: 120px; font-size: 26px; margin: 0 auto; }
+  .person-links { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; width: auto; }
+}
+
 @media (max-width: 640px) {
   body { font-size: 16px; }
   .hero { padding: 56px 0 40px; }
   .section { padding: 44px 0; }
   h2 { font-size: 26px; }
   .schedule .time { width: 110px; padding-right: 12px; font-size: 14px; }
-  .person { grid-template-columns: 1fr; gap: 12px; padding: 20px 0; }
-  .avatar { width: 120px; height: 120px; font-size: 26px; margin: 0 auto; }
-  .person-links { flex-direction: row; flex-wrap: wrap; justify-content: center; align-items: center; width: auto; }
   .person h4 { font-size: 17px; }
   .person p { font-size: 15px; }
 }
