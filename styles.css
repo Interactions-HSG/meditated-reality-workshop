@@ -295,6 +295,14 @@ ul li::marker { color: var(--muted); }
   color: var(--accent);
   border-color: var(--accent);
 }
+.link-btn-accent {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.link-btn-accent:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
 .person-media {
   display: flex;
   flex-direction: column;
