@@ -146,8 +146,8 @@ a:hover { opacity: .65; }
   min-height: 20vh;
   padding: 231px 0 72px;
   background-image:
-    linear-gradient(to bottom, rgba(20,28,55,0.82) 0%, rgba(20,28,55,0.92) 88%, #141c37 100%),
-    url("figures/chuttersnap-tStoxme92is-unsplash.png");
+    linear-gradient(to bottom, rgba(20,28,55,0.55) 0%, rgba(20,28,55,0.88) 30%, #141c37 100%),
+    url("figures/chuttersnap-tStoxme92is-unsplash_2.jpg");
   background-size: cover;
   background-position: bottom;
 }
