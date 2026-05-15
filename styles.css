@@ -419,7 +419,7 @@ ul li::marker { color: var(--muted); }
   display: inline-block;
   align-self: center;
   margin-top: 5px;
-  padding: 5px 14px;
+  padding: 5px 10px;
   border-radius: var(--radius);
   border: 1px solid var(--accent);
   background: transparent;
